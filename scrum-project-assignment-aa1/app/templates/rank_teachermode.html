@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+        
+      
+       <div class="container-fluid pt-4">
+            
+            <div class="d-flex justify-content-center py-5">
+                <div class=" text-center pt-5"><img src="static\images\baby.png" class="rounded-circle border border-secondary border-1 " style="width: 85px"><sup class="ranknum">2</sup>
+                    <div class="pt-2" style="font-size:27px; font-family: 'Times New Roman'; font-weight: 600;">Random</div>
+                    <div style="font-size: 15px;" class="pb-4 mb-2">12&nbsp;<i class="fa fa-star point"></i></div>
+                    <div class="progress vertical stageboard2 bg-secondary" style="height:85%">
+                        <i class="fa fa-trophy ps-4 pt-4 ms-2 stageboardicon" style="font-size: 36px; "></i>
+                      </div>
+                </div>
+                <div class=" text-center "><img src="static\images\cat.png" class="rounded-circle border border-secondary border-1 " style="width: 85px"><sup class="ranknum">1</sup>
+                    <div class="pt-2" style="font-size:27px;  font-family: 'Times New Roman';font-weight: 600;">{{ current_user.username }}</div>
+                    <div style="font-size: 15px;" class="pb-3">14&nbsp;<i class="fa fa-star point"></i></div>
+                    <div class="progress vertical stageboard1 bg-warning" style="height:90%">
+                        <i class="fa fa-trophy ps-4 pt-4 ms-2 stageboardicon" style="font-size: 40px; "></i>
+                    </div>
+                </div>
+                <div class=" text-center pt-5 mt-5"><img src="static\images\batman.png" class="rounded-circle border border-secondary border-1 " style="width: 85px;"><sup class="ranknum">3</sup>
+                    <div class="pt-4" style="font-size:27px;  font-family: 'Times New Roman';font-weight: 600;">User</div>
+                    <div style="font-size: 13px;" class="pb-3 mb-4">11&nbsp;<i class="fa fa-star point"></i></div>
+                    <div class="progress vertical stageboard3" style="height:74%">
+                        <i class="fa fa-trophy ps-4 pt-4 ms-2 stageboardicon" style="font-size: 35px; "></i>
+                    </div>
+                </div>
+            </div>
+           
+           
+            <div class="pt-5 mt-5">
+            <div class=" pt-5 pe-2 mt-5 text-end"><a href="{{ url_for('teacher_home') }}"><button class="button text-decoration-none">More Quiz</button></a></div></div>
+        </div>
+       
+        
+{% endblock header %}

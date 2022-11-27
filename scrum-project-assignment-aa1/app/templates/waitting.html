@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+
+<div class="d-flex justify-content-center pt-5 pb-3 mt-4" >
+    <div class="pt-2" style="font-family: 'Fuzzy Bubbles';"><h3>Waitting room: </h3></div>
+    <div class="px-4 py-1 ms-3 shadow rounded rounded-2 h2" style="background-color: rgb(30, 30, 30); color:white" >GH341</div>
+</div>
+
+<div class="container pt-5">
+    <div class="row justify-content-center">
+      <div class="col-3 ">
+            <img src="static\images\cat.png" style="width: 100px;" class="mx-auto d-block" >
+            <h5 class=" text-center"><strong>Mia</strong></h5>
+      </div>
+      <div class="col-3">
+        <div class=" pt-2 ">
+            <img src="static\images\cook.png"  class="mx-auto d-block" style="width: 100px;" >
+            <h5 class=" text-center"><strong>Lily</strong></h5>
+        </div>
+      </div>
+      <div class="col-3 ">
+            <div>
+           <img src="static\images\lady.png" style="width: 100px;" class="mx-auto d-block pt-2">
+           <h5 class=" text-center pt-2"><strong>Kelly</strong></h5></div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="container-fluid">
+ <span> <button type="button" class="btn border border-2 btn-dark px-3 py-1 "  style="font-size:medium; font-family: Gill Sans;" >
+    6 &nbsp;<i class="fa fa-user"></i> 
+  </button></span>
+  <span class="float-end py-1 px-3 m-1  bg-light shadow rounded-circle" style="font-size: 25px">
+    <i class="fa fa-volume-off me-1" style=" cursor: pointer;" onclick="changeIcon(this);Play()" ></i>
+  </span>
+</div>
+
+<div class="container pt-5">
+    <div class="row justify-content-center">
+      <div class="col-3 ">
+            <img src="static\images\penguin.png" style="width: 100px;" class="mx-auto d-block" >
+            <h5 class=" text-center"><strong>Peng</strong></h5>
+      </div>
+      <div class="col-3">
+        <div class=" pt-2 ">
+            <img src="static\images\bear.png"  class="mx-auto d-block pt-2" style="width: 130px;" >
+            <h5 class=" text-center"><strong>Bear</strong></h5>
+        </div>
+      </div>
+      <div class="col-3 ">
+            <div>
+           <img src="static\images\baby.png" style="width: 100px;" class="mx-auto d-block pt-2">
+           <h5 class=" text-center pt-2"><strong>Bat</strong></h5></div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="d-flex pe-4 pt-5  flex-row-reverse">
+  <a href="http://127.0.0.1:5000/teachermode_quiz"><div class="btn bg-dark px-4 py-2 mt-2 rounded text-light" >Next</div></a>
+</div>
+
+
+
+<audio hidden id="play">
+  <source src="static\videos\lobby_sound.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+ function Play()
+      {
+        var myAudio = document.getElementById("play");
+        if(myAudio.paused) {
+            myAudio.play();
+        }
+        else {
+           myAudio.pause();
+        }
+      }
+
+
+  function  changeIcon(icon)
+  {
+    icon.classList.toggle('fa-volume-up')
+  }
+</script>
+
+
+{% endblock header %}

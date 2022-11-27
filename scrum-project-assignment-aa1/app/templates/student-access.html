@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+
+<div class="smartphone">
+  <div class="content">
+  <div class= "container-fluid ">
+  <div class="row justify-content-sm-center pt-4" >
+    
+    <div class="col-sm-10 pt-3 text-center ">
+      <h6 class="text-center pt-5 pb-3 mt-5" style="font-family:Denk One" > Please fill in the box below!</h6>
+      <div class="container  border rounded border-dark border-2 ">
+          <div class="gamepin pt-4  bg-#FFFFFF "> </div>
+            <div class="border border-dark border-2 rounded " >
+            <input type="number" class="form-control text-center border-0" style="font-size: 14px;"id="gamepin" placeholder="Game PIN" name="PIN">
+          </div>
+      <div class=" username  bg-#FFFFFF  pt-2"></div>
+        <div class="border border-dark border-2 rounded ">
+      <input type="text" class="form-control text-center border-0"  style="font-size: 14px;" id="username" placeholder=" User name" name="pswd">
+      </div>
+  
+      <div class="py-3 pt-2"><a href="http://127.0.0.1:5000/avatar_guest"><button type="button" class=" form-control py-2 rounded btn btn-dark text-decoration-none">create</button></a></div>
+  
+     </div>
+  
+  
+  </div>
+  </div>
+  </div>
+  </div></div>
+
+
+
+{% endblock header %}

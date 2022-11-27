@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+
+<div class="d-flex justify-content-center pt-5 pb-3 mt-2" >
+    <div class="pt-2" style="font-family: 'Fuzzy Bubbles';"><h3>Waitting room: </h3></div>
+    <div class="px-4 py-1 ms-3 shadow rounded rounded-2 h2" style="background-color: rgb(30, 30, 30); color:white" >{{ quiz }}{{ pin }}</div>
+</div>
+<audio hidden id="play">
+  <source src="static\videos\lobby_sound.mp3" type="audio/mpeg">
+</audio>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+                var socket = io.connect(location.protocol + '//' + location.hostname + ':' + location.port);
+
+                socket.on('connect', function() {
+                    socket.emit('join', {'username': '{{ current_user.username|safe }}', 'room':'{{ pin|safe }}'});
+                    socket.emit('my event', {'data': '{{ current_user.username|safe }}', 'room':'{{ pin|safe }}'});
+                });
+
+            
+                socket.on('message', function(msg) {
+                    $("#messages").append('<li>'+msg+'</li>');
+                    console.log('Received message');
+                });
+                
+                socket.on('redirect', function(data) {
+                    window.location = data.url;
+                });
+
+                $('#nextButton').on('click', function() {
+                    socket.emit('redirect', {'quiz': '{{ quiz|safe }}', 'room': '{{ pin|safe }}'});
+                    $('#myMessage').val('');
+                });
+
+                $('#sendbutton').on('click', function() {
+                    socket.send($('#myMessage').val());
+                    $('#myMessage').val('');
+                });
+            
+            });
+            </script>
+            <p class ="text-center pt-3" id="messages"></p>
+
+
+
+<div class="d-flex pe-4 pb-5 mb-5  position-absolute bottom-0 end-0"><button class="btn bg-dark px-4 py-2 mt-2 rounded text-light" id="nextButton">Next</button></div>
+
+{% endblock header %}

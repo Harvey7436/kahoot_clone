@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block header %}
+       <div class="container-fluid">
+
+        <div class="row begin-countdown pt-4 ">
+            <div class="col-md-12 text-center">
+                <div> <span id="pageBeginCountdownText">20 </span> </div>
+                <span><progress style="height:30px; width: 60%;"value="20" id="pageBeginCountdown"  max="20"></progress></span>
+                
+            </div>
+          </div>
+
+        <div class="row py-4 ">
+            <h3 class="text-center border py-5">1+1</h3>
+        </div>
+        
+   <div class="container-fluid">     
+<div class="row">
+  <div class="col-md-6 pt-2"> <button type="button" class="btn border border-2 btn-dark px-3 py-1  "  style="font-size:medium; font-family: Gill Sans;" >
+     6 &nbsp;<i class="fa fa-user"></i> 
+   </button>
+  </div>
+  
+  <div class="col-md-6">
+   <span class="float-end py-1 px-3 m-1 bg-light shadow-sm   rounded-circle" style="font-size: 25px">
+     <i class="fa fa-volume-off me-1" style="cursor:pointer"  onclick="changeIcon(this);Play()" ></i>
+   </span>
+   </div>
+ </div>
+</div>
+        
+<div class="container-fluid">
+    <div class="row pt-5" >
+      <div class="col-6 btn px-1" style="font-size:35px;">
+        <div class="p-5 border rounded bg-danger">2</div>
+      </div>
+      <div class="col-6 btn px-1" style="font-size:35px;">
+        <div class="p-5 border rounded bg-info">3</div>
+      </div>
+      <div class="col-6 btn px-1" style="font-size:35px;">
+        <div class="p-5 border rounded bg-success">4</div>
+      </div>
+      <div class="col-6 btn px-1" style="font-size:35px;">
+        <div class="p-5 border rounded bg-warning">5</div>
+      </div>
+    </div>
+    </div>
+   </div>
+
+            
+ 
+<audio hidden id="play">
+  <source src="static\videos\playing_game.mp3" type="audio/mpeg">
+ 
+</audio>
+
+
+<script>
+ProgressCountdown(20, 'pageBeginCountdown', 'pageBeginCountdownText')
+function ProgressCountdown(timeleft, bar, text) {
+  return new Promise((resolve, reject) => {
+    var countdownTimer = setInterval(() => {
+      timeleft--;
+
+      document.getElementById(bar).value = timeleft;
+      document.getElementById(text).textContent = timeleft;
+
+      if (timeleft <= 0) {
+        clearInterval(countdownTimer);
+        resolve(true);
+      }
+    }, 1000);
+  });
+}
+
+function Play()
+      {
+        var myAudio = document.getElementById("play");
+        if(myAudio.paused) {
+            myAudio.play();
+        }
+        else {
+           myAudio.pause();
+        }
+      }
+
+
+  let changeIcon=function(icon)
+  {
+    icon.classList.toggle('fa-volume-up')
+  }
+</script>
+
+
+{% endblock header %}

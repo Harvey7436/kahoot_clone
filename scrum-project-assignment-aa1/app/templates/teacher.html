@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div class="container">
+<form method="post">
+  {{ form.hidden_tag() }}
+ 
+      <!--<div class="row text-center">
+          <div class="col-md-3 mt-2 my-1 py-5 border">
+              +
+          </div>
+          <div class="col-md-3 mt-2 my-1 py-5 border">
+              +
+          </div>
+          <div class="col-md-3 mt-2 my-1 py-5 border">
+              +
+          </div>
+          <div class="col-md-3 mt-2 my-1 py-5 border">
+              +
+          </div>
+      </div>
+    -->
+
+
+      
+              <!--
+              <h6 class="mt-2">Question Type</h6>
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                  - Choose -
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">MCQ</a></li>
+                  <li><a class="dropdown-item" href="#">True or False</a></li>
+                </ul>
+              <h6 class="mt-2">Time Limit</h6>
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                  - Choose -
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">30 Seconds</a></li>
+                  <li><a class="dropdown-item" href="#">45 Seconds</a></li>
+                  <li><a class="dropdown-item" href="#">60 Seconds</a></li>
+                </ul>
+              <h6 class="mt-2">Points</h6>
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    - Choose -
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">1000/Round</a></li>
+                    <li><a class="dropdown-item" href="#">2000/Round</a></li>
+                    <li><a class="dropdown-item" href="#">3000/Round</a></li>
+                  </ul>
+              <h6 class="mt-2">Answer Options</h6>
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    - Choose -
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Single Answer</a></li>
+                    <li><a class="dropdown-item" href="#">Double Answer</a></li>
+                    <li><a class="dropdown-item" href="#">Triple Answer</a></li>
+                  </ul>
+          </div>
+        -->
+        <div class="row justify-content-md-center" >
+        <div class="col-md-6 ">
+          <div class="row mt-5 shadow-sm">
+              <div class="container mt-5 ">
+                  <p>Type your question here:</p>
+                    <div class="mb-3 mt-3">
+                      {{ form.question(class="form-control", id="comment", type="textarea") }}
+                    </div>
+                    {% if form.question.errors %}
+                      <ul class="errors">
+                        {% for error in form.question.errors %}
+                          <li>{{ error }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                </div>
+          </div>
+          <div class="row mt-2 shadow-sm rounded">
+              <div class="input-group my-5">
+                  <div class="input-group-text ">
+                    <input type="radio" name="answers" value="0" id="0" checked="checked">
+                  </div>
+                  {{ form.answerA(class="form-control",type="text", placeholder="A    Type your answer...") }}
+                </div>
+                
+                <div class="input-group mb-5  ">
+                  <div class="input-group-text ">
+                    <input type="radio" name="answers" value="1" id="1">
+                  </div>
+                  {{ form.answerB(class="form-control", type="text", placeholder="B    Type your answer...") }}
+                </div>
+
+                <div class="input-group mb-5">
+                  <div class="input-group-text">
+                    <input type="radio" name="answers" value="2" id="2">
+                  </div>
+                  {{ form.answerC(class="form-control", type="text", placeholder="C    Type your answer...") }}
+                </div>
+
+                <div class="input-group mb-5">
+                  <div class="input-group-text">
+                    <input type="radio" name="answers" value="3" id="3">
+                  </div>
+                  {{ form.answerD(class="form-control", type="text", placeholder="D    Type your answer...") }}
+                </div>  
+          </div>
+          
+     
+      
+     
+          <div class="col-md-12 text-center ps-1 pt-2">
+             {{ form.submit(class="btn btn-dark  px-5 mt-2 ", placeholder="Save") }}
+              <button type="button" class="btn mt-2 btn-sm  px-3" style="background-color: rgb(215, 214, 214);">Start </button>
+          </div>
+    
+      </div>
+</div>
+
+
+
+</form>
+</div>
+{% endblock header %}

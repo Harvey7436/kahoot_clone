@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<body>
+  <div class="container-fluid">
+    <div class= "row">
+      <div class="col-md-3 text-center " style="box-shadow: 5px 0 5px -5px rgb(232, 231, 231);" >
+        <div class="col">
+          <div class="p-5"> <h1 class="pt-4 title" style="font-family: Freckle Face">Wgame<sup>Teac</sup></h1></div>
+          <hr/>
+          <div class=" text-center "><img src="static\images\cat.png" class="rounded-circle border border-dark " style="width: 50px;height: auto">
+          <div class="pt-2" style="font-size:22px; font-family: 'Trebuchet MS'">{{ current_user.username }}</div>
+          </div>
+          <hr/>
+          <div class="pt-1 topnav">
+          <div class="p-3 mt-4 div-centered"><a href="{{ url_for('teacher_home') }}"><button class="navstu"><i class="fa fa-home " style="font-size: 23px;"></i> &nbsp;Home</button></a></div>
+          <div class="p-3 mt-3 div-centered"><a href="{{ url_for('teacher_history') }}"><button class="navstu"><i class="fa fa-history " style="font-size: 23px;"></i> &nbsp;History</button></a></div>
+          <div class="p-3 "><a href="{{ url_for('teacher', quiz=new) }}"><button type="button" class="btn btn-dark  px-5">create</button></a></div>
+          </div>
+        </div>     
+      </div>
+
+      <div class=" col-md-9 ">
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+  </div>
+
+</body>
+
+{% endblock header %}

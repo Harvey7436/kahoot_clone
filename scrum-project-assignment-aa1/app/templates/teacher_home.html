@@ -1,0 +1,41 @@
+{% extends "teacher_base.html" %}
+
+{% block content %}
+
+        <div class="input-group px-4 pt-4 ">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="btn btn-dark" id="search_bar">Search</span>
+          </div>
+
+          <div class="container col pt-4 pb-1 ps-5 " style="font-size: large;"><strong>Available Quiz&nbsp;&nbsp;<i class="fa fa-check-square-o"></i></strong></div>
+
+        <div class="container-fluid col ">
+           <div class="row px-3">
+            {% for q in quiz %}
+            <div class="col-md-4 my-2  ">
+              <div class = " position-relative shadow-sm rounded">
+                <div class =" text-center py-1 pt-4 clear">
+                   <img src="static\images\singapore.JPG" class="mx-auto d-block rounded-2" style="width:70%">
+                </div>
+                <hr/>
+
+                <div class ="text-start rounded pb-3 ps-3 " >
+                  {{ q.id }}. {{ q.desc }} 
+                </div>
+
+                  <span class="position-absolute  bottom-0 end-0  mt-1  translate-middle drop  rounded-circle">
+                    <i  class="fa fa-plus px-2 py-1 tea_edit"  ></i>
+                    <div class="dropdown-content">
+                      <a href="{{ url_for('waiting', quiz=q.id) }}"><i  class="fa fa-window-restore" style="font-size: medium;color:rgb(233, 228, 228)"></i>&nbsp;&nbsp;Host Quiz</a>
+                      <a href="{{ url_for('teacher', quiz=q.id) }}"><i  class="fa fa-plus" style="font-size: medium;color:rgb(233, 228, 228)"></i>&nbsp;&nbsp; Add Question</a>
+                      <a href="#"><i  class="fa fa-trash" style="font-size: medium ;color:rgb(233, 228, 228)"></i>&nbsp;&nbsp;Delete Quiz</a>
+                    </div>
+                  </span>
+               </div>
+
+             </div>
+             {% endfor %}
+           </div>
+        </div>
+
+{% endblock content %}

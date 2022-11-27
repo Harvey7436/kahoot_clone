@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+    {% block header %}
+    <div class="container-fluid"></div>
+    <div class="container pt-5 mt-5">
+        <div class="row">
+            <div class="col-md-6 pt-5 mt-3 shadow-sm text-center ">
+                <div class="zoom"><a href="teacherhome"><button class="btn"><img src="static\images\teacher.jpg" style="width: 400px;height: auto" ></button></a></div>
+                <div><a href="teacherhome"><button type="button" class="btn btn-success my-5"  style="width: 120px;">Teacher</button></a></div>
+            </div>
+            <div class="col-md-6 pt-5 mt-3 shadow-sm text-center ">
+                <div class="zoom"><a href="stuhome"><button class=" btn"><img src="static\images\stu.jpg" style="width: 400px;height: auto" ></button></a></div>
+                <div><a href="stuhome"><button type="button" class="btn btn-warning my-5"  style="width: 120px;">Student</button></a></div>
+            </div>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+    </div>
+</div>
+    {% endblock header %}
+
+

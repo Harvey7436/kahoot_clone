@@ -1,0 +1,42 @@
+{% extends "student_base.html" %}
+
+{% block content %}
+
+          <div class="input-group p-4">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="btn btn-dark" id="search_bar">Search</span>
+          </div>
+          
+          
+
+            <div class="container">        
+        <table class="table shadow-sm ">
+          <thead>
+              <th scope="col" class="ps-3">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Questions</th>
+              <th scope="col">Quiz Name</th>
+              <th scope="col">Your Score</th>
+              <th></th>
+            
+          </thead>
+          <tbody>
+            <form method="post">
+            {% for s in student_history %}
+            <tr>
+              <td class="ps-3">{{ s.date }}</td>
+              <td>{{ s.time }}</td>
+              <td>{{ s.count }}</td>
+              <td>{{ s.quiz.desc }} </td>
+              <td>{{ s.score }}/{{ s.count }}</td>
+              <td><button class="btn btn-danger  btn-sm" type="submit" id="{{ s.id }}" name="delete" value="{{ s.id }}">Delete</button></td>
+            </tr>
+            {% endfor %}
+            </form>
+            
+          </tbody>
+        </table>
+</div>
+
+{% endblock content %}
+

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<div class="container-fluid" style=" font-family:Georgia">
+    <div class="text-center  pb-3 pt-5 mt-5" style="font-size: 60px;"> <h1> Sign up </h1></div>
+
+    <div class="row justify-content-evenly" >
+        <div class="col-md-auto">
+            <div class="container bg-white   border rounded-3 border-dark" >
+                <form method ="post">
+                    {{ form.hidden_tag() }}
+                    <div class="border-0 pt-4" >
+                        {{ form.username(type="Username", class="form-control  border-0", id="Username", style="font-size:13px; font-weight: 200;", placeholder="Username") }}
+                        <hr style='margin-top:-0.5em; height: 1.5px;' />
+                    </div>
+                    <div class="border-0">
+                        {{ form.password(type="password", class="form-control border-0", id="password", style="font-size:13px; font-weight: 200;", placeholder="Password") }}
+                        <hr style='margin-top:-0.5em; height: 1.5px;' />
+                    </div>
+                    <div class="border-0">
+                        {{ form.email(type="email", class="form-control border-0",  id="email", style="font-size:13px; font-weight: 200;", placeholder="Email") }}
+                        <hr style='margin-top:-0.5em; height: 1.5px;' />
+                    </div>
+                    <div class ="pt-2">
+                    <select class="form-select form-select-sm" label=".form-select-sm example" name="isTeacher", id="isTeacher">
+                        {% for option in form.isTeacher %}
+                            {% if loop.first %}
+                            <option value="" disabled selected hidden >I am a...</option>
+                            {% endif %}
+                            {{ option }}
+                        {% endfor %}
+                      </select>
+                      
+                    </div>
+                    <div class="pt-4">
+                        {{ form.tos(type="checkbox", class="form-check-input", value="something") }}
+                        <label class="form-check-label"><p style="font-size: 12px;">&nbsp; I completely agree to the Terms of use</p></label>
+                    </div>
+                    <div class="d-grid pt-2 pb-3 col-6 mx-auto">
+                        {{ form.submit(type="submit", value="Sign Up", class="btn btn-dark btn-lg", placeholder="Sign Up") }}
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock header %}

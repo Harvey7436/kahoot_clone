@@ -1,0 +1,31 @@
+{% extends "student_base.html" %}
+
+{% block content %}
+        <div class="input-group p-4">
+          <input type="text" class="form-control" placeholder="Search">
+          <span class="btn btn-dark" id="search_bar">Search</span>
+        </div>
+        <div class="container col pt-2 " style="font-size: large;"><strong>Recommended by us&nbsp;&nbsp;<i class="fa fa-thumbs-up"></i></strong></div>
+        <div class="container col ">
+           <div class="row">
+            {% for q in quiz %}
+            <div class="col-md-4 my-2 ">
+              <div class = " position-relative shadow-sm rounded">
+                <div class =" text-center py-1 pt-4 clear">
+                   <img src="static\images\singapore.JPG" class="mx-auto d-block rounded-2" style="width:70%">
+                </div>
+                <hr/>
+                <div class ="text-start rounded pb-3 ps-3 " >
+                 
+                  {{ q.id }}. {{ q.desc }} </div>
+                  <span class="position-absolute  bottom-0 end-0  mt-1  translate-middle rounded-circle">
+                    <a href="{{ url_for('student', quiz=q.id) }}"><button type="button" class="btn btn-light start_quiz border  shadow-sm btn-sm rounded">Start!<i class="fa fa-rocket test" ></i></button></a>
+                  </span>
+               </div>
+            
+             </div>
+             {% endfor %}
+           </div>
+        </div>
+{% endblock content %}
+

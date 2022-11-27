@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block header %}
+<body>
+  <div class="container-fluid  ">
+    <div class= "row">
+      <div class="col-md-3 text-center " style="box-shadow: 5px 0 5px -5px rgb(232, 231, 231);" >
+        <div class="col">
+          <div class="p-5"> <h1 class="pt-4 title" style="font-family: Freckle Face">Wgame<sup>Stu</sup></h1></div>
+          <hr/>
+          <div class=" text-center "><img src="static\images\cat.png" class="rounded-circle border border-dark " style="width: 50px;height: auto">
+                                                                   <div class="pt-2" style="font-size:22px; font-family: 'Trebuchet MS'">{{ current_user.username }}</div>
+          </div>
+          <hr/>
+          <div class=" topnav">
+          <div class="p-3 mt-4 div-centered"><a href="{{ url_for('student_home') }}"><button class="navstu"><i class="fa fa-home " style="font-size: 23px;"></i> &nbsp;Home</button></a></div>
+          <div class="p-3 mt-3 div-centered"><a href="{{ url_for('student_history') }}"><button class=" navstu"><i class="fa fa-history " style="font-size: 23px;"></i> &nbsp;History</button></a></div>
+          <div class="px-4 pt-2">
+          <form method="post">
+          <div class="  pt-4 px-5">
+            <input type="text" class="border border-dark border-2 rounded py-2 form-control text-center" placeholder="Game Pin" id="pin" name="pin" required> 
+          </div>
+            <div class="pt-2 px-5">
+            <button class="btn btn-dark px-5  form-control" type="submit"> Join </button>
+            </div>
+            </form>
+            </div>
+          </div>
+          
+        </div>     
+      </div>
+      <div class=" col-md-9  border-bottom-0 border-top-0">
+        {% block content %}
+        {% endblock content %}  
+      </div>
+    </div>
+  </div>
+
+</body>
+{% endblock header %}
+

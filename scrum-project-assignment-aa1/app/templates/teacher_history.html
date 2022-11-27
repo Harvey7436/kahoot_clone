@@ -1,0 +1,46 @@
+{% extends "teacher_base.html" %}
+
+{% block content %}
+        
+          <div class="input-group px-4 pt-4 ">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="btn btn-dark" id="search_bar">Search</span>
+          </div>
+
+          
+          <div class="container pt-4">        
+            <table class="table shadow-sm ">
+              <thead>
+                  <th scope="col" class="ps-3">Date</th>
+                  <th scope="col">Time</th>
+                  <th scope="col">Questions</th>
+                  <th scope="col">Quiz Name</th>
+                  <th scope="col">Participants</th>
+                  <th></th>
+                
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ps-3">Jul 21, 2022</td>
+                  <td>21:49</td>
+                  <td>16</td>
+                  <td>High school math</td>
+                  <td>22</td>
+                  <td><button class="btn btn-danger  btn-sm" type="button">Delete</button></td>
+                </tr>
+                <tr>
+                  <td class="ps-3">Aug 12, 2022</td>
+                  <td>14:10</td>
+                  <td>19</td>
+                  <td>Did you study hard?</td>
+                  <td>33</td>
+                  <td><button class="btn btn-danger  btn-sm" type="button">Delete</button></td>
+                </tr>
+               
+              
+                
+              </tbody>
+            </table>
+            </div>
+           
+{% endblock content %}

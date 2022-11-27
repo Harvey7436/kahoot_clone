@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<div class="container-fluid">
+    <div class="text-center pt-5"><h2 style="font-family: 'Fuzzy Bubbles';">Choose Your Avatar</h2></div>
+          <div class="container">
+            <div class="row p-5 ms-5 ">
+              <div class="col-sm ms-5"><button class="border-0 btn"><img src="static\images\batman.png" style="width: 120px;height: auto" ></button></div>
+              <div class="col-sm ms-5"><button class="border-0 btn"><img src="static\images\cook.png"   style="width: 120px;height: auto" ></button></div>
+              <div class="col-sm ms-5"><button class="border-0 btn"><img src="static\images\baby.png"   style="width: 120px;height: auto" ></button></div>
+              <div class="col-sm ms-5"><button class="border-0 btn"><img src="static\images\cat.png"    style="width: 120px;height: auto" ></button></div>
+            </div>
+            <div class="row p-5 ms-5 mb-5 justify-content-evenly">
+                <div class="col-sm ms-5"><button class="border-0 btn"><img src="static\images\man.png" style="width: 120px;height: auto" ></button></div>
+                <div class="col-sm ms-5"><button class="border-0 btn"><img src="static\images\penguin.png"   style="width: 120px;height: auto" ></button></div>
+                <div class="col-sm ms-5"><button class="border-0 btn"><img src="static\images\lady.png"   style="width: 120px;height: auto" ></button></div>
+                <div class="col-sm mt-5 me-5">
+                  <div class="shadow-sm text-center">
+                  <input type="file" name="uploadfile" id="img" style="display:none; ;"/>
+                  <label for="img" class="btn"><div><i class="fa fa-camera"></i></div>Add Your Image</label>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="d-grid col-4 mx-auto">
+            <button class="btn btn-dark btn-lg" type="button">Next</button>
+            <button class="btn " type="button">Skip</button>
+          </div>
+   </div>
+
+{% endblock header %}

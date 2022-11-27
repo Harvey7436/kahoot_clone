@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<div class="smartphone">
+    <div class="content">
+        
+        <div class="scrollbar ">
+            <div class="container-fluid">
+                <div class="text-center pt-5 pb-4"><h4 style="font-family: 'Fuzzy Bubbles';">Choose Your Avatar</h4></div>
+                      <div class=" d-flex justify-content-around">
+                          <div ><button class="border-0 btn"><img src="static\images\batman.png" style="width: 60px;height: auto" ></button></div>
+                          <div ><button class="border-0 btn"><img src="static\images\cook.png"   style="width: 60px;height: auto" ></button></div>
+                          
+                        </div>
+                        <div class=" d-flex justify-content-around">
+                            <div ><button class="border-0 btn"><img src="static\images\lady.png" style="width: 60px;height: auto" ></button></div>
+                             <div ><button class="border-0 btn"><img src="static\images\cat.png"    style="width: 60px;height: auto" ></button></div>
+                             </div>
+
+                             <div class=" d-flex justify-content-around">
+                                <div ><button class="border-0 btn"><img src="static\images\baby.png"   style="width: 60px;height: auto" ></button></div>
+                            <div ><button class="border-0 btn"><img src="static\images\penguin.png"   style="width: 60px;height: auto" ></button></div>
+                             </div>
+
+                          <div class=" d-flex justify-content-around">
+                            <div ><button class="border-0 btn"><img src="static\images\man.png"   style="width: 60px;height: auto" ></button></div>
+                            <div class="pt-3">
+                              <input type="file" name="uploadfile" id="img" style="display:none; ;"/>
+                              <label for="img" class="btn" style="font-size:16px ;"><div><i class="fa fa-camera"></i></div>Add Your</label>
+                            </div>
+                        </div>
+                     
+                      <div class="text-center mt-5">
+                        <a href="http://127.0.0.1:5000/stu_waitting"><button class="btn btn-dark btn-sm px-5" type="button">Next</button></a></div>
+                        <div class="text-center">
+                        <a href="http://127.0.0.1:5000/stu_waitting"><button class="btn " type="button">Skip</button></a>
+                      </div>
+               </div>
+
+        
+            </div>
+        </div>
+    </div>
+{% endblock header %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block header %}
+
+<audio hidden id="play">
+  <source src="static\videos\lobby_sound.mp3" type="audio/mpeg">
+</audio>
+
+<div class="smartphone">
+  <div class="content" >
+  <div class= "container-fluid ">
+  <div class="row justify-content-sm-center pt-5" >
+    <div class="pt-5"></div>
+    
+    <div class="col-sm-12 text-center " style=" color: #143d59; font-family:Denk One">
+      <div class=" pt-4  " >
+      <i class="fa fa-check " style="color:green;font-size: 40px;"></i>
+      <h5 class="text-center " > You are in</h5>
+      <h5 class="text-center pt-2 pb-5"  > See your nickname above!</h5>
+      </div>
+  
+     
+  </div>
+  <div class="buttonload text-center pt-5">
+    <i class="fa fa-spinner fa-spin" style="font-size: 25px;"></i>
+  </div>
+  <div class=" ms-3 mb-2 position-absolute bottom-0 start-0" style="font-size:20px; font-family: 'Courier New'; ">{{ current_user.username }}</div>
+  </div>
+  </div>
+  
+  </div>
+  </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+                var socket = io.connect(location.protocol + '//' + location.hostname + ':' + location.port);
+
+                socket.on('connect', function() {
+                    socket.emit('join', {'username': '{{ current_user.username|safe }}', 'room':'{{ pin|safe }}'});
+                    socket.emit('my event', {'data': '{{ current_user.username|safe }}', 'room':'{{ pin|safe }}'});
+                });
+
+                socket.on('stu response', function(data) { 
+                    socket.send(data.data);
+                });
+            
+                socket.on('message', function(msg) {
+                    $("#messages").append('<li>'+msg+'</li>');
+                    console.log('Received message');
+                });
+
+                socket.on('redirect', function(data) {
+                    window.location = data.url;
+                });
+            
+                $('#sendbutton').on('click', function() {
+                    socket.send($('#myMessage').val());
+                    $('#myMessage').val('');
+                });
+            
+            });
+          </script>
+
+
+{% endblock header %}
